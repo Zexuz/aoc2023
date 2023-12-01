@@ -1,0 +1,14 @@
+{
+  "name": "aoc2023",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --inspect ./index.ts "
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
