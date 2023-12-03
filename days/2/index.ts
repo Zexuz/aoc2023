@@ -18,9 +18,11 @@ export function part1(input: string) {
     const gameSets = gameParts[1].trim();
 
 
-    let totalOfRed = 0;
-    let totalOfGreen = 0;
-    let totalOfBlue = 0;
+    let highestNumberOfRed = 0;
+    let highestNumberOfGreen = 0;
+    let highestNumberOfBlue = 0;
+    let combinedPowers = 0;
+
     let isValue = true;
 
     logger(`Doing game ${gameName}`);
@@ -35,39 +37,54 @@ export function part1(input: string) {
 
 
         if(color == 'red') {
+          if(parseInt(number) > highestNumberOfRed) {
+            highestNumberOfRed = parseInt(number);
+          }
+
           if(parseInt(number) > maxRed) {
             isValue = false;
-            break;
+            // break;
           }
         }
 
         if(color == 'green') {
+          if(parseInt(number) > highestNumberOfGreen) {
+            highestNumberOfGreen = parseInt(number);
+          }
+
           if(parseInt(number) > maxGreen) {
             isValue = false;
-            break;
+            // break;
           }
         }
 
         if(color == 'blue') {
+          if(parseInt(number) > highestNumberOfBlue) {
+            highestNumberOfBlue = parseInt(number);
+          }
+
           if(parseInt(number) > maxBlue) {
             isValue = false;
-            break;
+            // break;
           }
         }
       }
 
       if(!isValue) {
         logger(`Game ${gameName} is not valid`);
-        break;
+        // break;
       }
     }
 
+    combinedPowers = highestNumberOfRed * highestNumberOfGreen * highestNumberOfBlue;
+
     if(!isValue) {
       logger(`Game ${gameName} is not valid`);
-      continue;
+      // continue;
     }
 
-    sum += parseInt(game.split(" ")[1]);
+    // sum += parseInt(game.split(" ")[1]);
+    sum += combinedPowers;
   }
 
 
